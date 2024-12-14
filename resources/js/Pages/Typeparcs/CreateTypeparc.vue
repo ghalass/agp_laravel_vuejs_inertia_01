@@ -18,8 +18,10 @@
                         <div class="form-group">
                             <label for="name">Nom du type de parc</label>
                             <input v-model="typeparcName" :class="{ 'is-invalid': nameError != '' }"
-                                class="form-control form-control-sm" type="text" id="name">
-                            <span v-if="nameError != ''" class="invalid-feedback error fst-italic">{{ nameError }}</span>
+                                class="form-control form-control-sm" type="text" id="name" />
+                            <span v-if="nameError != ''" class="invalid-feedback error fst-italic">
+                                {{ nameError }}
+                            </span>
                         </div>
 
                     </form>
@@ -38,11 +40,11 @@
 import { onMounted, ref } from 'vue';
 import { router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js';
-import { showAlert } from '../../Composables/alert';
+import { showAlert } from '@/Composables/alert';
 
-const typeparcName = ref('');
+let typeparcName = ref("");
+let nameError = ref("");
 
-let nameError = ""
 let createModal = ""
 
 onMounted(() => {
@@ -63,8 +65,9 @@ const soumettre = () => {
             showAlert('success', 'Ajouté avec succès!')
         },
         onError: (error) => {
-            if (error.name != null) nameError = error.name
-
+            if (error.name != null) {
+                nameError.value = error.name
+            }
             showAlert('error', "Une erreur s'est produite!")
         }
     });
