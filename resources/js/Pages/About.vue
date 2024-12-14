@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Home Page</h1>
+                        <h1 class="m-0">About Page</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -17,7 +17,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <h1>Home Page Content</h1>
+                <h1>About Page Content</h1>
             </div>
         </div>
     </div>
