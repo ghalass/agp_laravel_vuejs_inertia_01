@@ -17,8 +17,9 @@
                     <form @submit.prevent="soumettre" id="createForm">
                         <div class="form-group">
                             <label for="name">Nom du type de parc</label>
-                            <input v-model="typeparcName" required class="form-control form-control-sm" type="text"
-                                id="name">
+                            <input v-model="typeparcName" :class="{ 'is-invalid': nameError != '' }"
+                                class="form-control form-control-sm" type="text" id="name">
+                            <span v-if="nameError != ''" class="invalid-feedback error fst-italic">{{ nameError }}</span>
                         </div>
 
                     </form>
@@ -41,6 +42,7 @@ import { showAlert } from '../../Composables/alert';
 
 const typeparcName = ref('');
 
+let nameError = ""
 let createModal = ""
 
 onMounted(() => {
@@ -61,6 +63,8 @@ const soumettre = () => {
             showAlert('success', 'Ajouté avec succès!')
         },
         onError: (error) => {
+            if (error.name != null) nameError = error.name
+
             showAlert('error', "Une erreur s'est produite!")
         }
     });

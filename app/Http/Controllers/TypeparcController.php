@@ -12,10 +12,11 @@ class TypeparcController extends Controller
         $typeparcs = Typeparc::latest()->paginate(5);
         return inertia('Typeparcs/IndexTypeparcs', ['typeparcs' => $typeparcs]);
     }
+
     function store(Request $request)
     {
         $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:App\Models\Typeparc,name'
         ]);
         Typeparc::create(['name' => $request->name]);
         return redirect()->back();
