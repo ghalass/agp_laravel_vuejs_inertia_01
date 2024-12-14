@@ -38,7 +38,7 @@
                         <a href="#" class="nav-link " :class="{ 'active': $page.component.startsWith('Typeparcs/') }">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Typeparcs
+                                Configurations
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -50,13 +50,13 @@
                                 <p>Types parcs</p>
                                 </Link>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <Link :href="route('typeparcs.create')" class="nav-link"
                                     :class="{ 'active': $page.component == 'Typeparcs/CreateTypeparc' }">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Nouveau</p>
                                 </Link>
-                            </li>
+                            </li> -->
                         </ul>
                     </li>
 

@@ -1,5 +1,5 @@
 <template>
-    <ul class="pagination pagination-sm float-right">
+    <ul class="pagination pagination-sm float-right m-0">
         <li class="page-item" :class="{ 'disabled': props.prev == null }">
             <Link class="page-link" :href="props.prev">«</Link>
         </li>

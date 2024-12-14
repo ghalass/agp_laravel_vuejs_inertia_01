@@ -9,11 +9,15 @@ class TypeparcController extends Controller
 {
     function index()
     {
-        $typeparcs = Typeparc::orderby('name', 'ASC')->paginate(2);
+        $typeparcs = Typeparc::latest()->paginate(5);
         return inertia('Typeparcs/IndexTypeparcs', ['typeparcs' => $typeparcs]);
     }
-    function create()
+    function store(Request $request)
     {
-        return inertia('Typeparcs/CreateTypeparc');
+        $request->validate([
+            'name' => 'required'
+        ]);
+        Typeparc::create(['name' => $request->name]);
+        return redirect()->back();
     }
 }

@@ -1,26 +1,82 @@
 <template>
-    <div>
-        <!-- Content Header (Page header) -->
-        <div class="content-header">
-            <div class="container-fluid">
-                <div class="row mb-2">
-                    <div class="col-sm-6">
-                        <h1 class="m-0">Création d'un Typeparc Page</h1>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /.content-header -->
+    <button class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#createTypeparcModal">
+        <i class="fa fa-plus"></i>
+        Nouveau
+    </button>
 
-        <!-- Main content -->
-        <div class="content">
-            <div class="container-fluid">
-                <h1>Create Typeparc Page Content</h1>
+    <button @click="test" class="btn btn-sm btn-outline-secondary">
+        <i class="fa fa-plus"></i>
+        Test
+    </button>
+
+    <div class="modal fade" id="createTypeparcModal" data-backdrop="static">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Ajouter un nouveau type parc</h4>
+                    <button @click="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form @submit.prevent="soumettre" id="createForm">
+                        <div class="form-group">
+                            <label for="name">Nom du type de parc</label>
+                            <input v-model="typeparcName" required class="form-control form-control-sm" type="text"
+                                id="name">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                    <button @click="closeModal" type="button" class="btn btn-sm btn-outline-secondary"
+                        data-dismiss="modal">Fermer</button>
+                    <button form="createForm" type="submit" class="btn btn-sm btn-outline-success">Soumettre</button>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, ref } from 'vue';
+import { router } from '@inertiajs/vue3'
+import { route } from 'ziggy-js';
+
+const typeparcName = ref('');
+
+let createModal = ""
+
+onMounted(() => {
+    createModal = $('#createTypeparcModal')
+})
+
+const closeModal = () => {
+    createModal.modal('hide');
+    typeparcName.value = ""
+}
+
+const soumettre = () => {
+    const name = typeparcName.value;
+    const url = route('typeparcs.store');
+    router.post(url, { name: name }, {
+        onSuccess: (page) => {
+            closeModal()
+            showAlert('success', 'Opération réussie!', 'Success!')
+        },
+        onError: (error) => {
+            // afficher un msg de error
+        }
+    });
+}
+
+import { showAlert } from '@/alert'
+
+const test = () => {
+    // showAlert('info', 'Opération réussie!', 'Info!')
+    // showAlert('error', 'Opération réussie!', 'Error!')
+    // showAlert('success', 'Opération réussie!', 'Success!')
+    // showAlert('warning', 'Opération réussie!', 'Warning!')
+}
+
+</script>

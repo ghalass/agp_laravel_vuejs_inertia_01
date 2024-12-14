@@ -13,11 +13,11 @@ Route::get('/about', function () {
     return inertia('About');
 })->name('about');
 
-Route::get('/typeparcs', [TypeparcController::class, 'index'])
-    ->name('typeparcs.index');
-Route::get('/typeparcs/create', [TypeparcController::class, 'create'])
-    ->name('typeparcs.create');
-
 
 Route::get('/parcs', [ParcController::class, 'index'])
     ->name('parcs.index');
+
+Route::get('/typeparcs', [TypeparcController::class, 'index'])
+    ->name('typeparcs.index');
+Route::post('/typeparcs', [TypeparcController::class, 'store'])
+    ->name('typeparcs.store');

@@ -20,6 +20,7 @@ createInertiaApp({
         createApp({ render: () => h(App, props) })
             .use(plugin)
             .component("Link", Link)
+            // .use(SwalPlugin)
             .mount(el);
     },
 });

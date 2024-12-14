@@ -13,16 +13,15 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Simple Full Width Table</h3>
-
-                        <div class="card-tools">
-                            <Pagination :links="props.typeparcs.links" :prev="props.typeparcs.prev_page_url"
-                                :next="props.typeparcs.next_page_url" />
+                    <div class="card-header py-1">
+                        <div class="d-flex align-items-center justify-content-between">
+                            <CreateTypeparc />
+                            <div class="card-tools">
+                                <Pagination :links="props.typeparcs.links" :prev="props.typeparcs.prev_page_url"
+                                    :next="props.typeparcs.next_page_url" />
+                            </div>
                         </div>
                     </div>
-
-
                     <div class="card-body p-0">
                         <table class="table table-sm">
                             <thead>
@@ -57,6 +56,7 @@
 
 <script setup>
 import Pagination from '../../Shared/Pagination.vue';
+import CreateTypeparc from './CreateTypeparc.vue';
 
 
 const props = defineProps({
