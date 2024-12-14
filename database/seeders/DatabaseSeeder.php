@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
 
         // $this->call(TypeparcSeeder::class);
 
-        \App\Models\Parc::factory(10)->create();
+        // \App\Models\Parc::factory(10)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',
