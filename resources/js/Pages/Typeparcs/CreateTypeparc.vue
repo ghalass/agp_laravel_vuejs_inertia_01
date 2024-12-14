@@ -4,11 +4,6 @@
         Nouveau
     </button>
 
-    <button @click="test" class="btn btn-sm btn-outline-secondary">
-        <i class="fa fa-plus"></i>
-        Test
-    </button>
-
     <div class="modal fade" id="createTypeparcModal" data-backdrop="static">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -42,6 +37,7 @@
 import { onMounted, ref } from 'vue';
 import { router } from '@inertiajs/vue3'
 import { route } from 'ziggy-js';
+import { showAlert } from '../../Composables/alert';
 
 const typeparcName = ref('');
 
@@ -62,21 +58,12 @@ const soumettre = () => {
     router.post(url, { name: name }, {
         onSuccess: (page) => {
             closeModal()
-            showAlert('success', 'Opération réussie!', 'Success!')
+            showAlert('success', 'Ajouté avec succès!')
         },
         onError: (error) => {
-            // afficher un msg de error
+            showAlert('error', "Une erreur s'est produite!")
         }
     });
-}
-
-import { showAlert } from '@/alert'
-
-const test = () => {
-    // showAlert('info', 'Opération réussie!', 'Info!')
-    // showAlert('error', 'Opération réussie!', 'Error!')
-    // showAlert('success', 'Opération réussie!', 'Success!')
-    // showAlert('warning', 'Opération réussie!', 'Warning!')
 }
 
 </script>
