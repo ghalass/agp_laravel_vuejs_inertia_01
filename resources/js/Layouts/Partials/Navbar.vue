@@ -1,3 +1,4 @@
+-- Active: 1733940869966@@127.0.0.1@3306
 <template>
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
