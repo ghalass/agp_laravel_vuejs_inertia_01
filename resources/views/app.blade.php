@@ -9,7 +9,7 @@
     @inertiaHead
 </head>
 
-<body>
+<body class="control-sidebar-slide-open sidebar-mini">
     @inertia
 </body>
 

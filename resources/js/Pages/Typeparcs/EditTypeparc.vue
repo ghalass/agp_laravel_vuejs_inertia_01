@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Acceuil</h1>
+                        <h1 class="m-0">Edition d'un Typeparc Page</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -17,7 +17,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <h1>Page d'Acceuil</h1>
+                <h1>Edit Typeparc Page Content</h1>
             </div>
         </div>
     </div>
